@@ -26,6 +26,7 @@ from rest_framework import permissions
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include('authentication.urls')),
+    path('blogs/', include('blog.urls')),
 ]
 
 
