@@ -12,10 +12,10 @@ autopep8 = "*"
 [packages]
 django = "<=4.2"
 djangorestframework = "*"
-drf-yasg2 = "*"
 environs = "*"
 djangorestframework-simplejwt = "*"
 django-filter = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.10"

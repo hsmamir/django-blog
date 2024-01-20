@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,10 +82,9 @@ WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 _DEFAULT_TIME_RELATED_FORMAT = '%s'
 REST_FRAMEWORK = dict(
     DEFAULT_PERMISSION_CLASSES=('rest_framework.permissions.IsAuthenticated',),
-    DEFAULT_AUTHENTICATION_CLASSES=('utils.settings.JWTAuthentication',),
+    DEFAULT_AUTHENTICATION_CLASSES=('rest_framework_simplejwt.authentication.JWTAuthentication',),
     UNAUTHENTICATED_USER=None,
     DEFAULT_RENDERER_CLASSES=('rest_framework.renderers.JSONRenderer',),
-    DEFAULT_PAGINATION_CLASS='utils.views.CustomPagination',
     DATE_FORMAT=_DEFAULT_TIME_RELATED_FORMAT,
     DATE_INPUT_FORMATS=[_DEFAULT_TIME_RELATED_FORMAT],
     DATETIME_FORMAT=_DEFAULT_TIME_RELATED_FORMAT,
@@ -94,7 +95,7 @@ REST_FRAMEWORK = dict(
 
 DRF_ENABLED = env.bool('DRF_ENABLED', False)
 if DRF_ENABLED:
-    INSTALLED_APPS.append('drf_yasg2')  # noqa
+    INSTALLED_APPS.append('drf_yasg')  # noqa
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
